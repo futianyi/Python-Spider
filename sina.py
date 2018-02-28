@@ -1,5 +1,5 @@
 #抓取新浪国内新闻
-import requests,re,json,pandas
+import requests,re,json,pandas,time
 #from bs4 import BeautifulSoup
 from lxml import etree
 
@@ -72,6 +72,7 @@ def get_wantedinfo(newurls, infolist):
 
 
 if __name__ == '__main__':
+	#可以爬取很多页,这里知爬取1,2页
 	for i in range(1, 3):
 		url = 'http://api.roll.news.sina.com.cn/zt_list?channel=news&cat_1=gnxw&cat_2==gdxw1||=gatxw||=zs-pl||=mtjj&level==1||=2&show_ext=1&show_all=1&show_num=22&tag=1&format=json&page={}'.format(i)
 		html = get_html(url)
@@ -82,6 +83,7 @@ if __name__ == '__main__':
 		df = pandas.DataFrame(newstotal)
 		#df.to_excel(filename.xlsx)  其中xlsx是Excel的后缀,可以把数据转换成Excel文件
 		print(df)
+		time.sleep(2)
 
 
 
