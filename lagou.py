@@ -6,18 +6,8 @@ import requests,re,json,pandas,math,time
 from bs4 import BeautifulSoup
 
 headers = {
-    'Accept': 'application/json, text/javascript, */*; q=0.01',
-    'Accept-Encoding': 'gzip, deflate, br',
-    'Accept-Language': 'zh-CN,zh;q=0.9',
-    'Connection': 'keep-alive',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-     'Host': 'www.lagou.com',
-    'Origin': 'https://www.lagou.com',
     'Referer': 'https://www.lagou.com/jobs/list_python%22%E7%88%AC%E8%99%AB%22?px=default&city=%E5%B9%BF%E5%B7%9E',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
-    'X-Anit-Forge-Code': '0',
-    'X-Anit-Forge-Token': 'None',
-    'X-Requested-With': 'XMLHttpRequest'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
 }
 #得到相关搜索最大页数
 def get_page(url):
@@ -65,16 +55,15 @@ def get_info(url, page):
                     '薪水': salary
                 }
                 infos.append(informatiaon)
-        # 爬取完一页记得停一下,减少网站压力,若太快,会被判定为"机器人"
-        # 所谓与人方便,与己方便
         #>>>>>可用来表达进度
         print('>>>>>>>>>>>>>>>>>')
+        # 爬取完一页记得停一下,减少网站压力,若太快,会被判定为"机器人",所谓与人方便,与己方便
         time.sleep(2)
     return infos
 
 if __name__ == '__main__':
     #该参数可修改,定位城市
-    city = '全国'
+    city = '广州'
     url = 'https://www.lagou.com/jobs/positionAjax.json?px=default&city={}&needAddtionalResult=false&isSchoolJob=0'.format(city)
     params = {
         'first': 'false',
