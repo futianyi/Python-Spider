@@ -78,6 +78,7 @@ if __name__ == '__main__':
 		infolist = []
 		newurls = get_sourceurls(html)
 		newstotal = get_wantedinfo(newurls, infolist)
+		#变成DataFrame格式,该格式脱身于统计R语言
 		df = pandas.DataFrame(newstotal)
 		#df.to_excel(filename.xlsx)  其中xlsx是Excel的后缀,可以把数据转换成Excel文件
 		print(df)
