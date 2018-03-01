@@ -52,12 +52,12 @@ def get_wantedinfo(newurls):
             # kw = soup.select('#keywords')[0].get('data-wbkey')
             kw = html.xpath('//div[@class="keywords"]')[0].get('data-wbkey')
             # article = '+'.join([article.text.strip() for article in soup.select('.article p')])
-            # '+'.join 意思是把后面列表中的每一个元素用"+"连起来
+            # '+'.join 意思是把后面列表中的各个元素之间用"+"连起来
             article = '+'.join([article.strip() for article in html.xpath('//div[@class="article"]/p/text()')])
         except:
             article = 'error'
         try:
-            ctnum = re.findall('doc-i(.*?).shtml', newurl)
+            ctnum = re.findall('doc-i(.*?)\.shtml', newurl)
             cturl = 'http://comment5.news.sina.com.cn/page/info?version=1&format=json&channel=gn&newsid=comos-{}&group=undefined'
             commenturl = cturl.format(ctnum[0])
             cthtml = get_html(commenturl)
@@ -79,7 +79,7 @@ if __name__ == '__main__':
         newstotal = get_wantedinfo(newurls)
         # 变成DataFrame格式,该格式脱身于统计R语言
         df = pandas.DataFrame(newstotal)
-        # df.to_excel(filename.xlsx)  其中xlsx是Excel的后缀,可以把数据转换成Excel文件
+        # df.to_excel('news.xlsx')  其中xlsx是Excel的后缀,可以把数据导入Excel文件
         print(df)
         #爬完一页休息2秒
         time.sleep(2)
