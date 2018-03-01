@@ -11,8 +11,7 @@ import requests,re,json,pandas,math,time
 #该参数可修改,定位城市
 city = '全国'
 headers = {
-    #这个refer的参数city无所谓的样子,可有可无
-    'Referer': 'https://www.lagou.com/jobs/list_python%22%E7%88%AC%E8%99%AB%22?px=default&city={}'.format(city),
+    'Referer': 'https://www.lagou.com/jobs/list_python%22%E7%88%AC%E8%99%AB%22?px=default',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
     'Cookie': 'user_trace_token=20180224151528-86357976-65b7-4b68-853a-77a305cd7ac5; _ga=GA1.2.1208832788.1519456528; LGUID=20180224151529-7e547311-1932-11e8-8eef-525400f775ce; index_location_city=%E5%85%A8%E5%9B%BD; _gid=GA1.2.112591580.1519812421; JSESSIONID=ABAAABAACEBACDG0E85CB9D90A6CA73385B0D74B4CB7389; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1519584108,1519812421,1519812629,1519817087; TG-TRACK-CODE=search_code; LGSID=20180301022111-279946df-1cb4-11e8-b106-5254005c3644; PRE_UTM=; PRE_HOST=; PRE_SITE=https%3A%2F%2Fwww.lagou.com%2Fjobs%2Flist_python%2522%25E7%2588%25AC%25E8%2599%25AB%2522%3Fpx%3Ddefault%26city%3D%25E5%2585%25A8%25E5%259B%25BD; PRE_LAND=https%3A%2F%2Fwww.lagou.com%2Fjobs%2Flist_python%2522%25E7%2588%25AC%25E8%2599%25AB%2522%3Fpx%3Ddefault%26city%3D%25E5%25B9%25BF%25E5%25B7%259E; SEARCH_ID=0ac557ad35674285a3a697110a0d424b; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1519842921; LGRID=20180301023523-230af366-1cb6-11e8-b106-5254005c3644'
 }
