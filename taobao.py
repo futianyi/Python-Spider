@@ -44,8 +44,8 @@ if __name__ == '__main__':
         info = parse_page(html)
         info = pandas.DataFrame(info)
         print(info)
-    #虽然众所周知,淘宝服务器强大无比,还是自觉点吧
-    time.sleep(3)
+        #虽然众所周知,淘宝服务器强大无比,还是要自觉哈
+        time.sleep(3)
 
 
 
